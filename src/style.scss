@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+TC');
+
+$serif: Noto Serif TC, serif;
+
+body {
+  font-family: $serif;
+  margin: .5em;
+}
+
+main {
+  height: calc(100vh - 2em);
+  min-height: 400px;
+  background-image: url(/assets/3.jpg);
+  background-color: #222;
+  background-size: cover;
+  background-position: top center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 2px #b28f8580;
+}
+
+.panel {
+  background-color: mintcream;
+  padding: 1em;
+
+  &.first {
+    min-height: 30vh;
+    background-color: #222;
+    color: #fff;
+    display: flex;
+    
+    p {
+      max-width: 300px;
+      padding: 1em;
+      
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  } 
+}
