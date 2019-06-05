@@ -1,4 +1,6 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
@@ -14,32 +16,27 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "rhondakay.min.css"
+    })
+  ],
   module: {
-    rules: [
-      {
-        test: /\.scss|.sass$/,
-        use: [
-            "style-loader", // creates style nodes from JS strings
-            "css-loader", // translates CSS into CommonJS
-            "sass-loader" // compiles Sass to CSS, using Node Sass by default
-        ]
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
-      },
-      {
-        test: /\.(jpe?g)$/i,
-        loader: 'responsive-loader',
-        options: {
-          sizes: [320, 768, 1200, 2500, 3000],
-          quality: 70,
-          outputPath: path.resolve(__dirname, 'dist/assets/img')
-        }
+    rules: [{
+      test: /\.scss$/,
+      use: [{
+          loader: MiniCssExtractPlugin.loader,
+        }, {
+          loader: 'css-loader', // translates CSS into CommonJS
+        }, {
+          loader: 'sass-loader' // compiles Less to CSS
+      }]
+    }, {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: "babel-loader"
       }
-  ]
+    }]
   }
-};
+}
