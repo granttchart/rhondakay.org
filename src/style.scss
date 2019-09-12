@@ -1,44 +1,80 @@
 @import url(https://fonts.googleapis.com/css?family=Noto+Serif+TC);
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/card";
 
 $serif: Noto Serif TC, serif;
 
 body {
   font-family: $serif;
-  margin: .5em;
   background: linear-gradient(170deg, #e0e0e0 0%, #fbb1c9 25%, #cc7593 100%);
-  font-size: 16px
+  font-size: 14px
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.75em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.25em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.scrim {
+  background-color: rgba(255, 255, 255, .85);
 }
 
 .hero {
-  min-height: calc(80vh - 1em);
-
-  position: relative;
-
   img {
     max-height: calc(100vh - 1em);
     max-width: calc(100vw - 1em);
+    box-shadow: 0px 0px .5em #778c8c;
   }
 
   .meta {
     position: absolute;
-    text-shadow: 0px 2px 2px rgba(95, 95, 95, 0.8);
+    text-shadow: 0px 2px 2px rgba(34, 34, 34, 0.8);
     color: #fff;
-  }
-}
 
-.panel {
-  min-height: 40vh;
+    h1 {
+      font-size: 2em;
+      font-weight: 600;
+    }
+  }
 
   .contents {
-    background-color: #fff;
+    h4 {
+      line-height: 1.68em;
+    }
   }
 }
 
 @media (max-width: 767px) {
   body {
-    font-size: 14px;
+    font-size: 12px;
 
     .centerpiece {
       width: calc(100vw - 1em);
@@ -48,6 +84,6 @@ body {
 
 @media (max-width: 400px) {
   body {
-    font-size: 12px;
+    font-size: 11px;
   }
 }

@@ -6,7 +6,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 module.exports = {
   mode: devMode ? 'development' : 'production',
   watch: devMode,
-  entry: path.resolve(__dirname, 'src/app.js'),
+  entry: path.resolve(__dirname, 'src/index.js'),
   devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -21,22 +21,33 @@ module.exports = {
       filename: "rhondakay.min.css"
     })
   ],
+    resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
   module: {
-    rules: [{
-      test: /\.scss$/,
-      use: [{
-          loader: MiniCssExtractPlugin.loader,
-        }, {
-          loader: 'css-loader', // translates CSS into CommonJS
-        }, {
-          loader: 'sass-loader' // compiles Less to CSS
-      }]
-    }, {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: {
-        loader: "babel-loader"
+    rules: [
+      {
+        test: /\.s?css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader', // translates CSS into CommonJS
+          },
+          {
+            loader: 'sass-loader' // compiles Less to CSS
+          },
+          {
+            loader: 'postcss-loader' // Autoprefixer
+          }
+        ]
+      }, 
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
       }
-    }]
+    ]
   }
 }
