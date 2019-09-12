@@ -1,8 +1,8 @@
-#rhondakay.org
+# rhondakay.org
 
 A memorial website to Rhonda Kay Smith, mother to Grant and Jessie.
 
-##Scripts
+## Scripts
 ### Build
 Run `npm run build` to build a production build.
 
