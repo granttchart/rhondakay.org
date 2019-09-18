@@ -16,7 +16,7 @@ $serif: Noto Serif TC, serif;
 body {
   font-family: $serif;
   background: linear-gradient(170deg, #e0e0e0 0%, #fbb1c9 25%, #cc7593 100%);
-  font-size: 14px
+  font-size: 16px
 }
 
 h1 {
@@ -49,8 +49,6 @@ main {
 
 .hero {
   img {
-    max-height: calc(100vh - 1em);
-    max-width: calc(100vw - 1em);
     box-shadow: 0px 0px .5em #778c8c;
   }
 
@@ -72,18 +70,24 @@ main {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1200px) {
   body {
-    font-size: 12px;
+    font-size: 15px;
+  }
+}
 
-    .centerpiece {
-      width: calc(100vw - 1em);
+@media (max-width: 769px) {
+  body {
+    font-size: 14px;
+
+    .contents {
+      border-radius: 0!important;
     }
   }
 }
 
 @media (max-width: 400px) {
   body {
-    font-size: 11px;
+    font-size: 13px;
   }
 }
