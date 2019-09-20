@@ -1,4 +1,5 @@
 const path = require('path')
+const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
@@ -19,7 +20,17 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: "rhondakay.min.css"
-    })
+    }),
+    new CopyPlugin([
+      {
+        from: 'src/index.html',
+        to: ''
+      },
+      {
+        from: 'src/assets',
+        to: 'assets/'
+      }
+    ])
   ],
     resolve: {
     extensions: ['*', '.js', '.jsx']

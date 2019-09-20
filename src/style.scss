@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Noto+Serif+TC);
+@import url('https://fonts.googleapis.com/css?family=Lato|Noto+Serif+TC&display=swap');
 
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
@@ -12,6 +12,7 @@
 @import "~bootstrap/scss/card";
 
 $serif: Noto Serif TC, serif;
+$sans: Lato, sans-serif;
 
 body {
   font-family: $serif;
@@ -64,8 +65,11 @@ main {
   }
 
   .contents {
-    h4 {
+    h5 {
+      font-size: .95em;
+      font-family: $sans;
       line-height: 1.68em;
+      color: #484848;
     }
   }
 }
